@@ -77,20 +77,22 @@ class Mago(Personaje):
 
 
 def combate(jugador_1, jugador_2):
-    turno = 0
+    turno = 1
     while jugador_1.esta_vivo() and jugador_2.esta_vivo():
-        print("\nTurno", turno)
+        print("\n========================= Turno", turno, "=========================")
         print(">>> Acción de ", jugador_1.nombre, ":", sep="")
         jugador_1.atacar(jugador_2)
         print(">>> Acción de ", jugador_2.nombre, ":", sep="")
         jugador_2.atacar(jugador_1)
         turno = turno + 1
+
+    print("\n=========================== Fin ===========================")
     if jugador_1.esta_vivo():
-        print("\nHa ganado", jugador_1.nombre)
+        print("Ha ganado", jugador_1.nombre)
     elif jugador_2.esta_vivo():
-        print("\nHa ganado", jugador_2.nombre)
+        print("Ha ganado", jugador_2.nombre)
     else:
-        print("\nEmpate")
+        print("Empate")
 
 
 personaje_1 = Guerrero("Guts", 20, 10, 4, 100, 4)
